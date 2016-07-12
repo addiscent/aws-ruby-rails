@@ -11,9 +11,9 @@ Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of
 
 1. Begin the Launch of an EC2 instance using the EC2 Dashboard.
 
-2. On the page labeled "Step 3: Configure Instance Details", set the options per your needs, then notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.
+2. On the page labeled "Step 3: Configure Instance Details", set the options per your needs, then notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.  Notice the _User Data_ edit box which drops down.
 
-3. Notice the _User Data_ edit box.  Ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
+3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
 Continue with Launch per usual.  The _ec2-provision-ruby-rails.sh_ script will provision Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  
 
@@ -36,6 +36,7 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
         Rails 5.0.0
       
 > $ nodejs --version
+
         v0.10.25
 
 > $ git --version
@@ -43,9 +44,11 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
         git version 1.9.1
       
 ## IMPORTANT
-After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The last few lines of the log file indicate provisioning has completed :
+After provisioning is complete, you must reboot the EC2 instance.
 
-> tail /home/ubuntu/arr-provision.log
+Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The last few lines of the log file indicate provisioning has completed :
+
+> $ tail  /home/ubuntu/arr-provision.log
 
         Setting up git-man (1:1.9.1-1ubuntu0.3) ...
         Setting up git (1:1.9.1-1ubuntu0.3) ...
@@ -58,5 +61,5 @@ After provisioning is complete, the EC2 instance should be rebooted.  Don't rebo
         rm aws-ruby-rails-provision.zip
         END EC2 Provision
 
-Reboot, and "Happy Railing".
+Now, reboot!
 
