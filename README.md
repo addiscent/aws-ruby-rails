@@ -11,11 +11,19 @@ Mon, July 11, 10:42pm.
 
 The tip of the master branch is not stable, it is broken, and you should not use it at this time.  Please check back again later for a working version.
 
-## Usage :
+## Usage
+Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of storage is available on an 8GB EBS volume.
 
-Start an EC2 instance using the EC2 Dashboard.  In the _Advanced Details User Data_ edit box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.  That script will provisiong Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  Provisioning works on a t2.nano, (512MB).  6GB of storage is available after provisioning on an 8GB EBS volume.
+1. Begin the Launch of an EC2 instance using the EC2 Dashboard.
 
-To verify successful Ruby/Rails installation, log into the EC2 instance, and verify the version number of the installed software, as follows :
+2. On the page labeled "Step 3: Configure Instance Details", notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.
+
+3. See the _User Data_ edit box.  In that box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
+Continue with Launch per usual.
+
+The _ec2-provision-ruby-rails.sh_ script will provision Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  
+
+To verify successful Ruby/Rails installation, log into the EC2 instance, and verify the version numbers of the installed software, as follows :
 
 > $ ruby --version
 
@@ -41,7 +49,7 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
         git version 1.9.1
       
 ## IMPORTANT
-After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  After logging into the EC2 instance, display the provisioning log file.  The contents of the log file indicate provisioning has completed :
+After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The contents of the log file indicate provisioning has completed :
 
 > cat /home/ubuntu/arr-provision.log
 
