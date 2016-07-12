@@ -1,6 +1,6 @@
 #!/bin/bash
 # provision ruby 2.3.1, rails 5.0.0, and other relevant common dependencies/tools
-# rex 2016.0709.1730
+# rex 2016.0711.2330
 
 echo "-->  BEGIN Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning"
 
@@ -20,25 +20,9 @@ sed -i 's/localhost/localhost rails-server-aws/g' /etc/hosts
 
 echo "-->  Set .bashrc customization for root and ubuntu"
 
-echo "" >> /home/ubuntu/.bashrc
+cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
 
-echo "export PS1='${debian_chroot:+($debian_chroot)}\n\D{%Y.%m%d.%H%M.%S}\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '" >> /home/ubuntu/.bashrc
-
-echo "" >> /home/ubuntu/.bashrc
-
-echo "mls() {
-  ls -lBh --group-directories-first $1 $2 $3 $4 $5
-}" >>  /home/ubuntu/.bashrc
-
-echo "" >> /root/.bashrc
-
-echo "export PS1='${debian_chroot:+($debian_chroot)}\n\D{%Y.%m%d.%H%M.%S}\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '" >> /root/.bashrc
-
-echo "" >> /root/.bashrc
-
-echo "mls() {
-  ls -lBh --group-directories-first $1 $2 $3 $4 $5
-}" >>  /root/.bashrc
+cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /root/.bashrc
 
 ##########################################################################
 # remove ruby 1.9.1
@@ -114,5 +98,6 @@ apt-get -y install git
 apt-get -y autoremove --purge
 
 echo "-->  END Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning"
+echo "Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning DONE" >> /home/ubuntu/arr-provision.log
 
 
