@@ -6,9 +6,9 @@ Provisioning works on an AWS t2.nano, (512MB), or larger.  After provisioning, 6
 ## Usage
 1. Begin the Launch of an AWS Ubuntu Server 14.04 AMI EC2 instance using the EC2 Dashboard.
 
-2. On the page labeled "Step 3: Configure Instance Details", set options per your needs, then select the button labeled _Advanced Details_.  Notice the _User Data_ edit box which immediately drops down.
+2. On the page labeled "Step 3: Configure Instance Details", set options per your needs, then select the button labeled _Advanced Details_.  Notice the _User Data_ edit box which immediately drops down after button selection.
 
-3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
+3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ edit box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
 4. Continue with Launch per usual on subsequent Launch pages.
 
@@ -43,7 +43,7 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ins
 ## IMPORTANT
 After provisioning is complete, reboot the EC2 instance.
 
-Take care to not reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, then "tail" the provision log file.  The last lines of the log file indicate provisioning has completed :
+Take care to not reboot before provisioning finishes.  To determine if provisioning has completed, log into the EC2 instance, then "tail" the provision log file.  The last lines of the log file indicate provisioning has completed :
 
 > $ tail  /home/ubuntu/arr-provision.log
 
