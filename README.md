@@ -6,11 +6,6 @@ Inspect these scripts, and understand what they do before you use them.  In addi
 #### NOTE
 These provisioning scripts are written for, (and tested only on), Ubuntu Server 14.04.  With minor modifications, the scripts may work for other Linux distributions, but the scripts currently will not work for non-Ubuntu distros.
 
-### WARNING
-Mon, July 11, 10:42pm.
-
-The tip of the master branch is not stable, it is broken, and you should not use it at this time.  Please check back again later for a working version.
-
 ## Usage
 Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of storage is available on an 8GB EBS volume.
 
@@ -50,15 +45,18 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
 ## IMPORTANT
 After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The last few lines of the log file indicate provisioning has completed :
 
-> cat /home/ubuntu/arr-provision.log
+> tail /home/ubuntu/arr-provision.log
 
-        BEGIN EC2 Provision
-        apt-get -y install unzip
-          .
-          .
-          .
+        Setting up git-man (1:1.9.1-1ubuntu0.3) ...
+        Setting up git (1:1.9.1-1ubuntu0.3) ...
+        Reading package lists...
+        Building dependency tree...
+        Reading state information...
+        0 upgraded, 0 newly installed, 0 to remove and 86 not upgraded.
         -->  END Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning
         rm -r ./aws-ruby-rails-provision-master
         rm aws-ruby-rails-provision.zip
         END EC2 Provision
+
+Reboot, and "Happy Railing".
 
