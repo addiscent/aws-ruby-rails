@@ -1,13 +1,18 @@
 #!/bin/bash
-# install and execute script which provisions ruby/rails
+# install and execute script which provisions ruby/rails.
+# During launch of a new EC2 instance, copy-paste the code herein into
+# the "Advanced Details -> User Data" edit box
 
-sudo -y apt-get unzip
+apt-get -y install unzip
 
-wget -O aws-ruby-rails.zip https://github.com/addiscent/aws-ruby-rails/archive/master.zip
+wget -O aws-ruby-rails-provision.zip https://github.com/addiscent/aws-ruby-rails-provision/archive/master.zip
 
-unzip aws-ruby-rails.zip
+unzip aws-ruby-rails-provision.zip
 
-chmode +x ./aws-ruby-rails/aws-ruby-rails.sh
-./aws-ruby-rails/aws-ruby-rails.sh
+chmod +x ./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh
 
+./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh
+
+rm -r ./aws-ruby-rails-provision-master
+rm aws-ruby-rails-provision.zip
 
