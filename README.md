@@ -1,11 +1,11 @@
 # aws-ruby-rails-provision
-Installs Ruby, Rails, and other tools/apps minimally required for operating a Rails server
+The scripts in this repository are intended for provisioning an AWS EC2 instance during Launch.  On an AWS EC2 instance, the scripts install Ruby, Rails, and other tools minimally required for operating a Rails server.
 
-WARNING : The provisioning script named _aws-ruby-rails-provision.sh_ has some minor bugs.  It will successfully provision Ruby, Rails, etc, but it displays the prompt of the user _root_ incorrectly.  Instead of a #, it incorrectly displays a $.  I will fix this bug very soon, but until then, beware, do not mistakenly operate as user _root_ instead of the less dangerous user _ubunutu_.  If you must work as the user root, fix the prompt yourself by editing the _.bashrc_ file, or use _whoami_ frequently while you work.
+WARNING : Mon, July 11, 10:42pm.  The tip of the master branch is not stable, it is broken, and you should not use it at this time.  Please check back again later for a working version.
 
 ## Usage :
 
-Start an EC2 instance using the EC2 Dashboard.  In the Advanced Details User Data box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.  That script will provisiong Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.
+Start an EC2 instance using the EC2 Dashboard.  In the _Advanced Details User Data_ edit box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.  That script will provisiong Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  Provisioning works on a t2.nano, (512MB).  6GB of storage is available after provisioning on an 8GB EBS volume.
 
 To verify successful Ruby/Rails installation, log into the EC2 instance, and verify the version number of the installed software, as follows :
 
