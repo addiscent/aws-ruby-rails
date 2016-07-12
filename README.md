@@ -1,12 +1,12 @@
 # aws-ruby-rails-provision
-The scripts in this repository are intended to provision an AWS Ubuntu Server 14.04 EC2 instance during Launch.  The scripts install Ruby, Rails, and other tools required for building a Rails project.  The result is usable as a _light-weight Rails Server_.  No heavy-weight HTTP or DB servers are installed, such as Apache/NGINX or PostgreSQL/MySQL.  Some common Gems are installed which may perform HTTP or DB tasks adequately for development or educational needs.  In addition to installing Ruby/Rails/etc, the scripts perform minor modification to the .bashrc to "improve" the command line prompt for the users _root_ and _ubuntu_.
+The scripts in this repository provision an _AWS Ubuntu Server 14.04_ EC2 instance during Launch.  The scripts install _Ruby_, _Rails_, and other important tools required for starting a _Rails_ project.  The resulting EC2 instance is potentially usable as a _light-weight Rails Server_.  No HTTP or DB servers are installed, such as Apache/NGINX or MySQL/PostgreSQL, but those functions may be performed by user-installed Gems, at least well enough for development or educational purposes.  In addition to installing Ruby/Rails/etc, a script performs minor modification to the .bashrc to "improve" the command line prompt for the users _root_ and _ubuntu_.
 
-Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of storage is available on an 8GB EBS volume.
+Provisioning works on an AWS t2.nano, (512MB), or larger.  After provisioning, 6GB of storage free-space is available on an 8GB EBS volume.
 
 ## Usage
 1. Begin the Launch of an AWS Ubuntu Server 14.04 AMI EC2 instance using the EC2 Dashboard.
 
-2. On the page labeled "Step 3: Configure Instance Details", set options per your needs, then choose the drop-down-menu-button labeled _Advanced Details_.  Notice the _User Data_ edit box which drops down.
+2. On the page labeled "Step 3: Configure Instance Details", set options per your needs, then choose the button labeled _Advanced Details_.  Notice the _User Data_ edit box which drops down.
 
 3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
