@@ -16,7 +16,7 @@ Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of
 
 1. Begin the Launch of an EC2 instance using the EC2 Dashboard.
 
-2. On the page labeled "Step 3: Configure Instance Details", notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.
+2. On the page labeled "Step 3: Configure Instance Details", set the options per your needs, then notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.
 
 3. Notice the _User Data_ edit box.  Ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
@@ -48,12 +48,17 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
         git version 1.9.1
       
 ## IMPORTANT
-After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The contents of the log file indicate provisioning has completed :
+After provisioning is complete, the EC2 instance should be rebooted.  Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, and display the provisioning log file.  The last few lines of the log file indicate provisioning has completed :
 
 > cat /home/ubuntu/arr-provision.log
 
-        Result :
-            .
-            .
-          Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning DONE
+        BEGIN EC2 Provision
+        apt-get -y install unzip
+          .
+          .
+          .
+        -->  END Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning
+        rm -r ./aws-ruby-rails-provision-master
+        rm aws-ruby-rails-provision.zip
+        END EC2 Provision
 

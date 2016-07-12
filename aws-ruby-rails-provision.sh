@@ -98,6 +98,5 @@ apt-get -y install git
 apt-get -y autoremove --purge
 
 echo "-->  END Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning"
-echo "Ruby on Rails 5.0.0 (Ruby 2.3.1) Provisioning DONE" >> /home/ubuntu/arr-provision.log
 
 
