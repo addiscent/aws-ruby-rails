@@ -18,10 +18,9 @@ Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of
 
 2. On the page labeled "Step 3: Configure Instance Details", notice the drop-down-menu-button labeled _Advanced Details_.  Choose that button.
 
-3. See the _User Data_ edit box.  In that box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
-Continue with Launch per usual.
+3. Notice the _User Data_ edit box.  Ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
-The _ec2-provision-ruby-rails.sh_ script will provision Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  
+Continue with Launch per usual.  The _ec2-provision-ruby-rails.sh_ script will provision Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to the normal Launch time.  
 
 To verify successful Ruby/Rails installation, log into the EC2 instance, and verify the version numbers of the installed software, as follows :
 
