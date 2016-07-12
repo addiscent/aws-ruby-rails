@@ -1,21 +1,16 @@
 # aws-ruby-rails-provision
-The scripts in this repository are intended to provision an AWS Ubuntu Server 14.04 EC2 instance during Launch.  On such an AWS EC2 instance, the scripts install Ruby, Rails, and other tools minimally required for operating a Rails server.
+The scripts in this repository are intended to provision an AWS Ubuntu Server 14.04 EC2 instance during Launch.  The scripts install Ruby, Rails, and other tools required for building a Rails project.  The result is usable as a _light-weight Rails Server_.  No heavy-weight HTTP or DB servers are installed, such as Apache/NGINX or PostgreSQL/MySQL.  Some common Gems are installed which may perform HTTP or DB tasks adequately for development or educational needs.  In addition to installing Ruby/Rails/etc, the scripts perform minor modification to the .bashrc to "improve" the command line prompt for the users _root_ and _ubuntu_.
 
-Inspect these scripts, and understand what they do before you use them.  In addition to installing Ruby/Rails/etc, the scripts do minor modification to the .bashrc to "improve" the prompt for the users _root_ and _ubuntu_.
-
-#### NOTE
-These provisioning scripts are written for, (and tested only on), Ubuntu Server 14.04.  With minor modifications, the scripts may work for other Linux distributions, but the scripts currently will not work for non-Ubuntu distros.
-
-## Usage
 Provisioning works on a t2.nano, (512MB), or larger.  After provisioning, 6GB of storage is available on an 8GB EBS volume.
 
-1. Begin the Launch of an EC2 instance using the EC2 Dashboard.
+## Usage
+1. Begin the Launch of an AWS Ubuntu Server 14.04 AMI EC2 instance using the EC2 Dashboard.
 
-2. On the page labeled "Step 3: Configure Instance Details", set the options per your needs, then choose the drop-down-menu-button labeled _Advanced Details_.  Notice the _User Data_ edit box which drops down.
+2. On the page labeled "Step 3: Configure Instance Details", set options per your needs, then choose the drop-down-menu-button labeled _Advanced Details_.  Notice the _User Data_ edit box which drops down.
 
 3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ box, paste the contents of the script file _ec2-provision-ruby-rails.sh_.
 
-Continue with Launch per usual.  The _ec2-provision-ruby-rails.sh_ script provisions Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to normal Launch time.  
+Continue with Launch per usual on subsequent Launch pages.  The _ec2-provision-ruby-rails.sh_ script provisions Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to normal Launch time.  
 
 To verify successful Ruby/Rails installation, log into the EC2 instance, and verify the version numbers of the installed software, as follows :
 
@@ -46,7 +41,7 @@ To verify successful Ruby/Rails installation, log into the EC2 instance, and ver
 ## IMPORTANT
 After provisioning is complete, reboot the EC2 instance.
 
-Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, then display the provisioning log file.  The last lines of the log file indicate provisioning has completed :
+Don't reboot prematurely.  To determine if provisioning has completed, log into the EC2 instance, then "tail" the provision log file.  The last lines of the log file indicate provisioning has completed :
 
 > $ tail  /home/ubuntu/arr-provision.log
 
