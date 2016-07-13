@@ -1,13 +1,45 @@
 #!/bin/bash
-# install and execute a script which provisions ruby/rails.
-# During launch of a new EC2 instance, copy-paste the code herein into
-# the "Advanced Details -> User Data" edit box
-# rex 2016.0712.0000
+# installs software and configures an EC2 instance for use as a
+# Ruby/Rails development/education machine, or potentially usable as a
+# Rails server
+# rex 2016.0713.1240
 
 echo "BEGIN EC2 Provision" >> /home/ubuntu/arr-provision.log
 
-echo "apt-get -y install unzip" >> /home/ubuntu/arr-provision.log
+##############################################################################
+# set the hostname
+
+echo "-->  Set hostname to aws-ruby-rails"
+
+hostname aws-ruby-rails
+
+echo "aws-ruby-rails" > /etc/hostname
+
+sed -i 's/localhost/localhost aws-ruby-rails/g' /etc/hosts
+
+#############################################################################
+# set custom prompt and functions/aliases in .bashrc for users root and ubuntu
+
+echo "-->  Set .bashrc customization for root and ubuntu"
+
+cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
+
+cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /root/.bashrc
+
+##########################################################################
+# remove ruby 1.9.1
+
+echo "-->  Remove ruby 1.9.1"
+
+apt-get -y remove ruby1.9.1 --purge
+
+############################################################################
+# install unzip
+echo "-->  apt-get -y install unzip" >> /home/ubuntu/arr-provision.log
 apt-get -y install unzip
+
+############################################################################
+# install ruby/rails and related tools/software
 
 echo "wget -O aws-ruby-rails-provision.zip https://github.com/addiscent/aws-ruby-rails-provision/archive/master.zip" >> /home/ubuntu/arr-provision.log
 wget -O aws-ruby-rails-provision.zip https://github.com/addiscent/aws-ruby-rails-provision/archive/master.zip
