@@ -1,5 +1,5 @@
-# aws-ruby-rails-provision
-The scripts in this repository provision an _AWS Ubuntu Server 14.04_ EC2 instance during Launch.  The scripts install _Ruby_, _Rails_, and other important tools required for starting a _Ruby on Rails_ project.  The resulting EC2 instance is potentially usable as a _low-load Rails Server_ if the necessary Gems are added to a _Rails_ project by the user.  No heavy-weight HTTP or DB servers are installed, such as Apache/NGINX or MySQL/PostgreSQL.  In addition to installing Ruby/Rails/etc, a script performs minor modification to two .bashrc files to "improve" the command line prompt for the users _root_ and _ubuntu_.
+# aws-ruby-rails
+The scripts in this repository provision an _AWS Ubuntu Server 14.04_ EC2 instance during Launch.  The scripts install _Ruby_, _Rails_, and other important tools required for starting a _Ruby on Rails_ project.  No heavy-weight HTTP or DB servers are installed, such as Apache/NGINX or MySQL/PostgreSQL.  In addition to installing Ruby/Rails/etc, a script performs minor modification to two .bashrc files to "improve" the command line prompt for the users _root_ and _ubuntu_.
 
 Provisioning works on an AWS t2.nano, (512MB), or larger.  After provisioning, 6GB of storage free-space is available on an 8GB EBS volume.
 
@@ -10,7 +10,7 @@ Provisioning works on an AWS t2.nano, (512MB), or larger.  After provisioning, 6
 
 3. Atop the _User Data_ edit box, ensure the "As text" radio button is selected.  In the _User Data_ edit box, paste the contents of the script file _ec2-ruby-rails.sh_.
 
-4. Continue with Launch per usual on subsequent Launch pages.
+4. Continue with _Launch_ per usual on subsequent _Launch_ pages.
 
 The _ec2-ruby-rails.sh_ script provisions Ruby/Rails immediately after EC2 launch.  Provisioning adds approximately ten minutes to normal Launch time.  
 
