@@ -4,7 +4,7 @@
 # Rails server
 # rex 2016.0713.1240
 
-echo "BEGIN EC2 Provision" >> /home/ubuntu/arr-provision.log
+echo "-->  BEGIN ec2-ruby-rails-config-install.sh" >> /home/ubuntu/arr-provision.log
 
 ##############################################################################
 # set the hostname
@@ -22,9 +22,9 @@ sed -i 's/localhost/localhost aws-ruby-rails/g' /etc/hosts
 
 echo "-->  Set .bashrc customization for root and ubuntu"
 
-cat ./aws-ruby-rails/bashrc-mod.txt >> /home/ubuntu/.bashrc
+cat ./aws-ruby-rails-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
 
-cat ./aws-ruby-rails/bashrc-mod.txt >> /root/.bashrc
+cat ./aws-ruby-rails-master/bashrc-mod.txt >> /root/.bashrc
 
 ##########################################################################
 # remove ruby 1.9.1
@@ -59,5 +59,5 @@ rm -r ./ruby-rails-install-master
 echo "rm ruby-rails-install.zip" >> /home/ubuntu/arr-provision.log
 rm ruby-rails-install.zip
 
-echo "END EC2 Provision" >> /home/ubuntu/arr-provision.log
+echo "-->  END ec2-ruby-rails-config-install.sh" >> /home/ubuntu/arr-provision.log
 

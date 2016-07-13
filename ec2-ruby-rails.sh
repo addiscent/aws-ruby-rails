@@ -4,7 +4,7 @@
 # Rails server
 # rex 2016.0713.1340
 
-echo "BEGIN EC2 ruby-rails.sh" >> /home/ubuntu/arr-provision.log
+echo "-->  BEGIN ruby-rails.sh" >> /home/ubuntu/arr-provision.log
 
 ############################################################################
 # download and execute provisioning software
@@ -27,5 +27,5 @@ rm -r ./aws-ruby-rails-master
 echo "rm aws-ruby-rails.zip" >> /home/ubuntu/arr-provision.log
 rm aws-ruby-rails.zip
 
-echo "END EC2 ruby-rails.sh" >> /home/ubuntu/arr-provision.log
+echo "-->  END ruby-rails.sh" >> /home/ubuntu/arr-provision.log
 
