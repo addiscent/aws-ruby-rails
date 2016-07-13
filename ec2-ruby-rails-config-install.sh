@@ -22,9 +22,9 @@ sed -i 's/localhost/localhost aws-ruby-rails/g' /etc/hosts
 
 echo "-->  Set .bashrc customization for root and ubuntu"
 
-cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
+cat ./aws-ruby-rails/bashrc-mod.txt >> /home/ubuntu/.bashrc
 
-cat ./aws-ruby-rails-provision-master/bashrc-mod.txt >> /root/.bashrc
+cat ./aws-ruby-rails/bashrc-mod.txt >> /root/.bashrc
 
 ##########################################################################
 # remove ruby 1.9.1
@@ -41,23 +41,23 @@ apt-get -y install unzip
 ############################################################################
 # install ruby/rails and related tools/software
 
-echo "wget -O aws-ruby-rails-provision.zip https://github.com/addiscent/aws-ruby-rails-provision/archive/master.zip" >> /home/ubuntu/arr-provision.log
-wget -O aws-ruby-rails-provision.zip https://github.com/addiscent/aws-ruby-rails-provision/archive/master.zip
+echo "wget -O ruby-rails-install.zip https://github.com/addiscent/ruby-rails-install/archive/master.zip" >> /home/ubuntu/arr-provision.log
+wget -O ruby-rails-install.zip https://github.com/addiscent/ruby-rails-install/archive/master.zip
 
-echo "unzip aws-ruby-rails-provision.zip" >> /home/ubuntu/arr-provision.log
-unzip aws-ruby-rails-provision.zip
+echo "unzip ruby-rails-install.zip" >> /home/ubuntu/arr-provision.log
+unzip ruby-rails-install.zip
 
-echo "chmod +x ./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh" >> /home/ubuntu/arr-provision.log
-chmod +x ./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh
+echo "chmod +x ./ruby-rails-install-master/ruby-rails-install.sh" >> /home/ubuntu/arr-provision.log
+chmod +x ./ruby-rails-install-master/ruby-rails-install.sh
 
-echo "./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh" >> /home/ubuntu/arr-provision.log
-./aws-ruby-rails-provision-master/aws-ruby-rails-provision.sh >> /home/ubuntu/arr-provision.log
+echo "./ruby-rails-install-master/ruby-rails-install.sh" >> /home/ubuntu/arr-provision.log
+./ruby-rails-install-master/ruby-rails-install.sh >> /home/ubuntu/arr-provision.log
 
-echo "rm -r ./aws-ruby-rails-provision-master" >> /home/ubuntu/arr-provision.log
-rm -r ./aws-ruby-rails-provision-master
+echo "rm -r ./ruby-rails-install-master" >> /home/ubuntu/arr-provision.log
+rm -r ./ruby-rails-install-master
 
-echo "rm aws-ruby-rails-provision.zip" >> /home/ubuntu/arr-provision.log
-rm aws-ruby-rails-provision.zip
+echo "rm ruby-rails-install.zip" >> /home/ubuntu/arr-provision.log
+rm ruby-rails-install.zip
 
 echo "END EC2 Provision" >> /home/ubuntu/arr-provision.log
 
