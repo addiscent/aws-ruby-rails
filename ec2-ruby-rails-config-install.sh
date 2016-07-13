@@ -34,11 +34,6 @@ echo "-->  Remove ruby 1.9.1"
 apt-get -y remove ruby1.9.1 --purge
 
 ############################################################################
-# install unzip
-echo "-->  apt-get -y install unzip" >> /home/ubuntu/arr-provision.log
-apt-get -y install unzip
-
-############################################################################
 # install ruby/rails and related tools/software
 
 echo "wget -O ruby-rails-install.zip https://github.com/addiscent/ruby-rails-install/archive/master.zip" >> /home/ubuntu/arr-provision.log

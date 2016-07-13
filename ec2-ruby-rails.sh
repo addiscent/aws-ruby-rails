@@ -7,6 +7,11 @@
 echo "-->  BEGIN ec2-ruby-rails.sh" >> /home/ubuntu/arr-provision.log
 
 ############################################################################
+# install unzip
+echo "-->  apt-get -y install unzip" >> /home/ubuntu/arr-provision.log
+apt-get -y install unzip
+
+############################################################################
 # download and execute provisioning software
 
 echo "wget -O aws-ruby-rails.zip https://github.com/addiscent/aws-ruby-rails/archive/master.zip" >> /home/ubuntu/arr-provision.log
