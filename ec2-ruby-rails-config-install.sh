@@ -26,13 +26,6 @@ cat ./aws-ruby-rails-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
 
 cat ./aws-ruby-rails-master/bashrc-mod.txt >> /root/.bashrc
 
-##########################################################################
-# remove ruby 1.9.1
-
-echo "-->  Remove ruby 1.9.1"
-
-apt-get -y remove ruby1.9.1 --purge
-
 ############################################################################
 # install ruby/rails and related tools/software
 
