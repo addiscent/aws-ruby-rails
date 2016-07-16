@@ -8,7 +8,7 @@ echo "BEGIN aws-ruby-rails.sh" >> /home/ubuntu/arr-provision.log
 ##############################################################################
 # set the hostname
 
-echo "aws-ruby-rails.sh : Set hostname to aws-ruby-rails" >> /home/ubuntu/arr-provision.log
+echo "aws-ruby-rails.sh : Set hostname to aws-ruby-rails"
 
 hostname aws-ruby-rails
 
@@ -19,7 +19,7 @@ sed -i 's/localhost/localhost aws-ruby-rails/g' /etc/hosts
 #############################################################################
 # set custom prompt and functions/aliases in .bashrc for users root and ubuntu
 
-echo "aws-ruby-rails.sh :  Set .bashrc customization for root and ubuntu" >> /home/ubuntu/arr-provision.log
+echo "aws-ruby-rails.sh :  Set .bashrc customization for root and ubuntu"
 
 cat ./aws-ruby-rails-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
 
