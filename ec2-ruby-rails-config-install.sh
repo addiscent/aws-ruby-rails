@@ -27,11 +27,6 @@ cat ./aws-ruby-rails-master/bashrc-mod.txt >> /home/ubuntu/.bashrc
 cat ./aws-ruby-rails-master/bashrc-mod.txt >> /root/.bashrc
 
 ############################################################################
-# install unzip
-echo "ec2-ruby-rails-config-install.sh : apt-get -y install unzip" >> /home/ubuntu/arr-provision.log
-apt-get -y install unzip
-
-############################################################################
 # install ruby/rails and related tools/software
 
 echo "ec2-ruby-rails-config-install.sh : wget -O ruby-rails-install.zip https://github.com/addiscent/ruby-rails-install/archive/master.zip" >> /home/ubuntu/arr-provision.log
